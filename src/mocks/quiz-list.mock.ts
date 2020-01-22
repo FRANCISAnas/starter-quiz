@@ -1,4 +1,4 @@
-import { Quiz } from '../models/quiz.model';
+import { Quiz, Theme } from '../models/quiz.model';
 import { Question } from '../models/question.model';
 
 export const QUESTION_ACTOR: Question = {
@@ -20,11 +20,11 @@ export const QUESTION_SPORT: Question = {
     answers: [
         {
             value: 'Bercelon',
-            isCorrect: true,
+            isCorrect: true
         },
         {
             value: 'Manshester',
-            isCorrect: false,
+            isCorrect: false
         }
     ]
 };
@@ -33,13 +33,12 @@ export const QUIZ_LIST: Quiz[] = [
 
     {
         name: 'Les Acteurs', // What's happening if I change this value..?
-        theme: 'Actor',
-        questions: [QUESTION_ACTOR],
-
+        theme: Theme.Acteur,
+        questions: [QUESTION_ACTOR]
     },
     {
         name: 'Les Acteurs',
-        theme: 'Les Sports',
-        questions: [QUESTION_SPORT],
+        theme: Theme.Les_Sports,
+        questions: [QUESTION_SPORT]
     }
 ];

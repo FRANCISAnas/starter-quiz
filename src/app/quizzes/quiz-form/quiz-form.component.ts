@@ -39,9 +39,6 @@ export class QuizFormComponent implements OnInit {
 
     this.quizService.addQuiz(quizToCreate);
 
-
-
-
     // We retrieve here the quiz object from the quizForm and we cast the type "as Quiz".
     // Do you need to log your object here in your class? Uncomment the code below
     // and open your console in your browser by pressing F12 and choose the tab "Console".

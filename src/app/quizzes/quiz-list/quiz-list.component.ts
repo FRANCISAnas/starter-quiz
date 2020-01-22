@@ -16,6 +16,7 @@ export class QuizListComponent implements OnInit {
   }
 
   ngOnInit() {
+    
   }
 
   quizSelected(selected: boolean) {
