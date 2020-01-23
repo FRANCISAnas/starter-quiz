@@ -4,6 +4,7 @@
         <i *ngIf="quiz.theme ==='Les Sports'" class="fas fa-arrow-circle-down"></i>
         Nom: {{quiz.name}}<br/>
         <span>Theme: {{quiz.theme}} </span>
+        <span *ngIf="quiz.date != undefined"><strong>Date: {{quiz.date}}</strong></span>
         <p class="center">{{quiz.questions.length}}</p>
     </h2>
 

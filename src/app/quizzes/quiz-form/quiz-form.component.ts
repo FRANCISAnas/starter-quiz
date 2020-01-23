@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 
 import { QuizService } from '../../../services/quiz.service';
 import { Quiz } from '../../../models/quiz.model';
+import { Question, Answer } from 'src/models/question.model';
 
 @Component({
   selector: 'app-quiz-form',
@@ -36,7 +37,8 @@ export class QuizFormComponent implements OnInit {
 
   addQuiz() {
     const quizToCreate: Quiz = this.quizForm.getRawValue() as Quiz;
-
+    quizToCreate.questions = [];
+    quizToCreate.date = new Date();
     this.quizService.addQuiz(quizToCreate);
 
     // We retrieve here the quiz object from the quizForm and we cast the type "as Quiz".

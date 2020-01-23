@@ -32,10 +32,10 @@ export class QuizService {
 
     this.quizzes$.next(this.quizzes);
 
-
     // You need here to update the list of quiz and then update our observable (Subject) with the new list
     // More info: https://angular.io/tutorial/toh-pt6#the-searchterms-rxjs-subject
   }
+
 
   deleteQuiz(quiz: Quiz): void {
     let i: number;

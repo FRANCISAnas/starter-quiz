@@ -16,7 +16,7 @@ export class QuizListComponent implements OnInit {
   }
 
   ngOnInit() {
-    
+
   }
 
   quizSelected(selected: boolean) {
@@ -25,6 +25,5 @@ export class QuizListComponent implements OnInit {
 
   deleteQuiz(quiz: Quiz): void {
     this.quizService.deleteQuiz(quiz);
-    console.log('deleted!');
   }
 }
