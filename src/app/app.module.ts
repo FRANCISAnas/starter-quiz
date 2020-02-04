@@ -1,12 +1,18 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { QuizListComponent } from './quizzes/quiz-list/quiz-list.component';
 import { QuizComponent } from './quizzes/quiz/quiz.component';
 import { HeaderComponent } from './header/header.component';
 import { QuizFormComponent } from './quizzes/quiz-form/quiz-form.component';
+import { AppRoutingModule } from './app.routing.module';
+import { EditQuizComponent } from './quizzes/edit-quiz/edit-quiz.component';
+import { QuestionsComponent } from './quizzes/questions/questions.component';
+import { QuestionFormComponent } from './quizzes/question-form/question-form.component';
+import { QuestionListComponent } from './quizzes/question-list/question-list.component';
 
 @NgModule({
   declarations: [
@@ -14,13 +20,19 @@ import { QuizFormComponent } from './quizzes/quiz-form/quiz-form.component';
     QuizListComponent,
     QuizComponent,
     HeaderComponent,
-    QuizFormComponent
+    QuizFormComponent,
+    EditQuizComponent,
+    QuestionsComponent,
+    QuestionFormComponent,
+    QuestionListComponent
   ],
   imports: [
     BrowserModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule,
+    AppRoutingModule
   ],
-  providers: [],
+  providers: [HttpClientModule],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

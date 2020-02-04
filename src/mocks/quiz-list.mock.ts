@@ -32,15 +32,17 @@ export const QUESTION_SPORT: Question = {
 export const QUIZ_LIST: Quiz[] = [
 
     {
-        name: 'Les Acteurs', // What's happening if I change this value..?
+        name: 'Les Acteurs', // What's happening if I change this value..?,
+        id: '1',
         theme: Theme.Acteur,
         questions: [QUESTION_ACTOR],
         date: new Date()
     },
     {
         name: 'Les Acteurs',
+        id: '2',
         theme: Theme.Les_Sports,
-        questions: [QUESTION_SPORT],        
+        questions: [QUESTION_SPORT],
         date: new Date()
 
     }

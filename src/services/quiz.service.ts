@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Subject } from 'rxjs';
+import { BehaviorSubject, Subject, Observable, of } from 'rxjs';
 import { Quiz } from '../models/quiz.model';
 import { QUIZ_LIST } from '../mocks/quiz-list.mock';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -18,19 +19,27 @@ export class QuizService {
     */
   private quizzes: Quiz[] = QUIZ_LIST;
 
+  private urlAPI = ' https://api.myjson.com/bins/13ajhy';  // URL to web api
   /**
    * Observable which contains the list of the quiz.
    * Naming convention: Add '$' at the end of the variable name to highlight it as an Observable.
    */
   public quizzes$: BehaviorSubject<Quiz[]> = new BehaviorSubject(this.quizzes);
 
-  constructor() {
+  constructor(private http: HttpClient) {
+    this.quizzes$.subscribe();
+    this.setQuizzesFromUrl(this.urlAPI);
   }
 
   addQuiz(quiz: Quiz): void {
+    const stringId = this.quizzes.length + 1;
+    quiz.id = stringId.toString();
     this.quizzes.push(quiz);
 
     this.quizzes$.next(this.quizzes);
+
+
+
 
     // You need here to update the list of quiz and then update our observable (Subject) with the new list
     // More info: https://angular.io/tutorial/toh-pt6#the-searchterms-rxjs-subject
@@ -43,5 +52,13 @@ export class QuizService {
     this.quizzes.splice(i, 1);
     this.quizzes$.next(this.quizzes);
     console.log('deleted!');
+  }
+
+  setQuizzesFromUrl(url: string): void {
+    const mySubscription = this.http.get< { quizzes: Quiz[ ] }>(url).subscribe(
+      (quizes) => {
+        this.quizzes = quizes.quizzes;
+        this.quizzes$.next(this.quizzes);
+    });
   }
 }

@@ -8,4 +8,5 @@ export interface Quiz {
     theme: Theme;
     questions: Question[];
     date: Date;
+    id: string;
 }
